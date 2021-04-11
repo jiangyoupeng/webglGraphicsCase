@@ -37,7 +37,7 @@ window.onload = function init()
     //  Configure WebGL
     //
     gl.viewport( 0, 0, canvas.width, canvas.height );
-    gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
+    gl.clearColor( 0.0, 0.0, 0.0, 1.0 );
 
     // enable hidden-surface removal
 
@@ -51,13 +51,27 @@ window.onload = function init()
     // Create a buffer object, initialize it, and associate it with the
     //  associated attribute variable in our vertex shader
 
+    colors = []
+    points = []
+    var baseColors = [
+        vec3(1.0, 0.0, 0.0),
+        vec3(0.0, 1.0, 0.0),
+        vec3(0.0, 0.0, 1.0),
+        vec3(0.0, 0.0, 0.0)
+    ];
+    colors.push(baseColors[0])
+    colors.push(baseColors[1])
+    colors.push(baseColors[2])
+    points.push(vec3(-1,1,0))
+    points.push(vec3(1,1,0))
+    points.push(vec3(0,0,0))
+ 
     var cBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
     gl.bufferData( gl.ARRAY_BUFFER, flatten(colors), gl.STATIC_DRAW );
 
     var vColor = gl.getAttribLocation( program, "vColor" );
     gl.vertexAttribPointer( vColor, 3, gl.FLOAT, false, 0, 0 );
-    gl.enableVertexAttribArray( vColor );
 
     var vBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, vBuffer );
@@ -66,6 +80,7 @@ window.onload = function init()
     var vPosition = gl.getAttribLocation( program, "vPosition" );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
     gl.enableVertexAttribArray( vPosition );
+    gl.enableVertexAttribArray( vColor );
 
     render();
 };
