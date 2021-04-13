@@ -76,6 +76,8 @@ window.onload = function init()
     console.log(v01)
     console.log(v12)
     console.log(crossData)
+    console.log(gl.getParameter(gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS))
+    
     // gl.enable(gl.CULL_FACE)
  
     var cBuffer = gl.createBuffer();
