@@ -48,6 +48,10 @@ window.onload = function init()
     var program = initShaders( gl, "vertex-shader", "fragment-shader" );
     gl.useProgram( program );
 
+    console.log('test')
+    console.log(  gl.getParameter(gl.CULL_FACE_MODE) === gl.FRONT_AND_BACK)
+    console.log(  gl.getParameter(gl.CULL_FACE_MODE) === gl.FRONT)
+    console.log(  gl.getParameter(gl.CULL_FACE_MODE) === gl.BACK)
     // Create a buffer object, initialize it, and associate it with the
     //  associated attribute variable in our vertex shader
 
@@ -65,6 +69,14 @@ window.onload = function init()
     points.push(vec3(-1,1,0))
     points.push(vec3(1,1,0))
     points.push(vec3(0,0,0))
+
+    var v01 = vec3(points[1][0] - points[0][0],points[1][1] - points[0][1],points[1][2] - points[0][2])
+    var v12 = vec3(points[2][0] - points[1][0],points[2][1] - points[1][1],points[2][2] - points[1][2])
+    var crossData = cross(v01,v12)
+    console.log(v01)
+    console.log(v12)
+    console.log(crossData)
+    // gl.enable(gl.CULL_FACE)
  
     var cBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
