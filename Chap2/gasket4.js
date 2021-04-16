@@ -66,9 +66,15 @@ window.onload = function init()
     colors.push(baseColors[0])
     colors.push(baseColors[1])
     colors.push(baseColors[2])
+    colors.push(baseColors[2])
+    colors.push(baseColors[1])
+    colors.push(baseColors[0])
     points.push(vec3(-1,1,0))
     points.push(vec3(1,1,0))
     points.push(vec3(0,0,0))
+    points.push(vec3(-1,-1,0.5))
+    points.push(vec3(0,1,0.5))
+    points.push(vec3(1,0,0.5))
 
     var v01 = vec3(points[1][0] - points[0][0],points[1][1] - points[0][1],points[1][2] - points[0][2])
     var v12 = vec3(points[2][0] - points[1][0],points[2][1] - points[1][1],points[2][2] - points[1][2])
@@ -76,7 +82,9 @@ window.onload = function init()
     console.log(v01)
     console.log(v12)
     console.log(crossData)
-    // gl.enable(gl.CULL_FACE)
+    gl.enable(gl.DEPTH_TEST)
+    // gl.depthFunc(gl.GREATER)
+    // gl.
  
     var cBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
