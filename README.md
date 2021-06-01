@@ -1,11 +1,1 @@
-#INTERACTIVE COMPUTER GRAPHICS
-##A TOP-DOWN APPROACH WITH SHADER-BASED OPENGL®
-
-###EDWARD ANGEL
-University of New Mexico
-
-
-###DAVE SHREINER
-ARM, Inc.
-
-Here you have the examples of the book ordered by chapters.
+webgl计算机图形学书上的例子 用来对webgl进行测试理解
