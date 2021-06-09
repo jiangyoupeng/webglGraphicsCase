@@ -36,12 +36,13 @@ window.onload = function init()
     //
     //  Configure WebGL
     //
-    gl.viewport( 0, 0, canvas.width, canvas.height );
-    gl.clearColor( 0.0, 0.0, 0.0, 1.0 );
+    gl.clearColor( 0.0, 0.0, 0.0, 0.5 );
 
     // enable hidden-surface removal
 
     gl.enable(gl.DEPTH_TEST);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     //  Load shaders and initialize attribute buffers
 
@@ -83,8 +84,6 @@ window.onload = function init()
     console.log(v12)
     console.log(crossData)
     gl.enable(gl.DEPTH_TEST)
-    // gl.depthFunc(gl.GREATER)
-    // gl.
  
     var cBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
@@ -102,6 +101,20 @@ window.onload = function init()
     gl.enableVertexAttribArray( vPosition );
     gl.enableVertexAttribArray( vColor );
 
+    gl.viewport( 0, 0, canvas.width, canvas.height );
+    render();
+    colors = []
+    colors.push(baseColors[2])
+    colors.push(baseColors[0])
+    colors.push(baseColors[1])
+    colors.push(baseColors[1])
+    colors.push(baseColors[2])
+    colors.push(baseColors[0])
+    gl.bindBuffer( gl.ARRAY_BUFFER, cBuffer );
+    gl.bufferData( gl.ARRAY_BUFFER, flatten(colors), gl.STATIC_DRAW );
+    gl.viewport( 0, 0, canvas.width/2, canvas.height/2 );
+    // gl.disable(gl.DEPTH_TEST);
+    gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     render();
 };
 
@@ -167,6 +180,5 @@ function divideTetra( a, b, c, d, count )
 
 function render()
 {
-    gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.drawArrays( gl.TRIANGLES, 0, points.length );
 }

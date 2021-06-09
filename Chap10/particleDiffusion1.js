@@ -129,6 +129,7 @@ window.onload = function init() {
 
 var render = function(){
 
+    gl.viewport(0, 0, texSize, texSize);
    // render to texture
 
     gl.useProgram(program1);

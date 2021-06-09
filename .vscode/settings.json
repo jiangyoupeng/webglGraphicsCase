@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "WebGL-master"
+    "liveServer.settings.multiRootWorkspaceName": "WebGL-master",
+    "liveServer.settings.port": 5501
 }

@@ -123,7 +123,7 @@ window.onload = function init() {
     gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
 
 
-    gl.viewport(0, 0, 1024, 1024);
+    gl.viewport(1, 1, 1024, 1024);
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT );
 
@@ -178,6 +178,7 @@ function render() {
 
     gl.bindFramebuffer( gl.FRAMEBUFFER, framebuffer);
 
+    gl.viewport(1, 1, 1024, 1024);
     if(flag) {
         gl.bindTexture(gl.TEXTURE_2D, texture1);
         gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture2, 0);
@@ -188,6 +189,7 @@ function render() {
         gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture1, 0);
 
     }
+    // gl.viewport(0, 0, 1024, 1024);
 
     gl.useProgram(program2);
 
