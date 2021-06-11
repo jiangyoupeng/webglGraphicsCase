@@ -76,7 +76,7 @@ window.onload = function init() {
     gl.activeTexture( gl.TEXTURE0 );
     gl.bindTexture( gl.TEXTURE_2D, texture1 );
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 512, 512, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1024, 1024, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
     gl.generateMipmap(gl.TEXTURE_2D);
     gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST_MIPMAP_LINEAR );
     gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST )
@@ -136,7 +136,7 @@ window.onload = function init() {
     //gl.bindRenderbuffer(gl.RENDERBUFFER, renderbuffer);
 
 
-    gl.viewport(0, 0, 512, 512);
+    gl.viewport(100, 100, 512, 512);
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT );
 
@@ -180,7 +180,7 @@ window.onload = function init() {
     gl.uniform1i( gl.getUniformLocation(program2, "texture"), 0);
 
     gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
-    gl.viewport(0, 0, 512, 512);
+    gl.viewport(0, 0, 1024, 1024);
 
     render();
 
